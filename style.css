@@ -1,0 +1,405 @@
+@import url(nav.css);
+
+:root {
+    --main-black: #1E1E1E;
+    --main-white : #FFFFFF;
+    --main-grey : rgba(189, 195, 199,0.5);
+    --main-red : #F4737D;
+    --main-orange : #E99469;
+    --second-orange:#DF763D;
+    --main-blue : #9FCEFF;
+    --project-width : 500px;
+    --project-height : 300px;
+}
+
+
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    font-family: "Montserrat", serif;
+    width: 100vw;
+    /* overflow-x: hidden; */
+}
+
+.skip-link {
+    position: absolute;
+    top: auto;
+    left: -999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    padding: 15px 25px;
+    color: white;
+    background-color: var(--second-orange);
+    z-index: 1000;
+  }
+  .skip-link:focus-visible {
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    overflow: visible;
+  }
+
+
+/*----Ecran de chargement----*/
+
+.load-container {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background:  white;
+    pointer-events: none;
+}
+
+.anim-bloc {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    z-index: 100;
+
+}
+ .bloc-txt {
+    background-color: var(--main-orange);
+    border: solid 0px transparent;
+    position: absolute;
+    bottom: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 0;
+    z-index: 175;
+    overflow: hidden;
+}
+
+.bloc-txt h2 {
+    padding: 10px 20px;
+    color: #222;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transform: translateY(100px);
+}
+
+.images-container {
+    width: 100%;
+    height: 0px;
+    position: absolute;
+    /* Pour faire monter la height de bas en haut */
+    bottom: 0px;
+    z-index: 150;
+    overflow: hidden;
+}
+
+.img-flip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img-flip p {
+    border-radius: 16px;
+    color: var(--main-white);
+    padding: 10px 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+
+.img-flip{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center;
+    position: absolute;
+}
+
+.flip-img1 {
+    background-color: var(--second-orange);
+    /* background-image: url(imgTache/TacheOrange.png); */
+}
+
+.flip {
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+    position: absolute;
+}
+
+.f2 {
+    background: var(--main-orange);
+}
+
+/*---- FIN Ecran de chargement ---- */
+
+/* Header */
+/*----Tache----*/
+.header-container {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+} 
+
+.header-container h1 {
+    margin-bottom: 70px;
+    width: 70%;
+    font-size: 1.8rem;
+    margin-left: 10px;
+}
+
+.header-perso {
+    position: absolute;
+    right: -150px;
+    max-width: 400px;
+    transform: rotateY(3.142rad);
+}
+
+.header-tache {
+    max-width: 250px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.header-tache-yellow {
+    right: -250px;
+    top: 30px;
+}
+.header-tache-orange {
+    bottom: 0px;
+    left: 50px;
+}
+.header-tache-blue {
+    top: 0px;
+}
+.header-tache-red {
+    bottom: 0px;
+    right: -150px;
+}
+.header-tache-green {
+    top: 30%;
+    left: 50%;
+}
+/*----Fin Tache---- */
+
+/*----Me part----*/
+.border-title {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    
+}
+
+.me-part {
+    background-image: url(img/border-red.png);
+}
+
+.rotate {
+    transform: rotate(3.142rad);
+    margin-top: -5px;
+}
+
+.me-container {
+    margin-top: 50px;
+}
+
+.title {
+    font-size: 1.5rem;
+    min-height: 50vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.me-title {
+   
+    background-color: var(--main-red);
+}
+
+.me-card {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    border: solid 1px var(--main-black);
+    border-radius: 16px;
+    padding: 25px 25px;
+    width: 80%;
+}
+
+
+.me-card img {
+    width: 100%;
+    border-radius: 16px;
+    margin-bottom: 10px;
+}
+
+.me-card-title {
+    background-color: var(--main-orange);
+    width: fit-content;
+    padding: 15px 25px;
+    position: absolute;
+    font-size: 1.5rem;
+    top: -20px;
+    left: -30px;
+    font-weight: 700;
+    border-radius: 16px;
+}
+
+.me-card-text {
+    border-top: 1px solid var(--main-black);
+    padding-top: 20px;
+}
+
+.me-details {
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+details {
+    font-size: 1.125rem;
+    width: 100%;
+    border-bottom: var(--main-orange) 3px solid;
+  }
+  summary {
+    font-size: 1.5rem;
+    padding: 15px 0;
+    width: 100%;
+  }
+  
+  summary::marker {
+    content: none;
+  }
+  summary:after {
+    content: "+";
+    float: right;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin:-7px 0 0 15px;
+    padding: 0;
+    color: var(--second-orange);
+    text-align: center;
+    width: 20px;
+  }
+  details[open] summary:after {
+    content: "-";
+  }
+  details[open]{
+    width: 100%;
+    padding: 15px 0px;
+  }
+  details{
+    width: 100%;
+  }
+
+/* ---- Fin me part ----*/
+
+/*---- Skills ----*/
+
+.skills {
+    margin-top: 50px;
+    min-height: 200vh;
+}
+
+.skills-part {
+    background-image: url(img/border-blue.png);
+}
+
+.skills-title {
+    background-color: var(--main-blue);
+
+}
+
+.skills-container {
+
+}
+
+.skills-card {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    margin-bottom: 100px;
+}
+
+.skills-card-text {
+    margin-top: 10px;
+    border-top: #1E1E1E solid 1px;
+    padding-top: 20px;
+    width: 100%;
+}
+
+.skills-card-background {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.crea {
+    background-image: url(img/CreaIMG.jpg);
+}
+
+.unreal {
+    background-image: url(img/3DIMG.jpg);
+}
+.video {
+    background-image: url(img/videoIMG.jpg);
+}
+
+.dev {
+    background-image: url(img/devIMG.png);
+}
+
+.skills-card img {
+    position: absolute;
+}
+
+.menu-ps {
+    width: 30px;
+    left: -35px;
+    top: -20px;
+}
+
+.photoshopcolor {
+    width: 200px;
+    right: -130px;
+    top: 20%;
+}
+
+.photoshop-toolBar {
+    width: 300px;
+    bottom: 10px;
+    left: 20px;
+}
+
+.HTML5 {
+    width: 100px;
+    top: -30px;
+    left: -30px;
+}
+.Javascript {
+    width: 100px;
+    top: 30%;
+    right: -20px;
+}
+
+.CSS3 {
+    width: 70px;
+    bottom: 0px;
+    left: -30px;
+
+}

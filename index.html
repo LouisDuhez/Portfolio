@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louis Duhez Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="load-container">
+
+        <div class="anim-bloc">
+          <div class="images-container">
+              <div class="img-flip flip-img1">
+                <p>Développement</p>
+              </div>
+              <div class="flip f2"></div>
+          </div>
+  
+          <div class="bloc-txt">
+            <h2>Louis Duhez</h2>
+          </div>
+        </div>
+  
+      </div>
+    <a href="#main" class="skip-link">Aller au contenu principal</a>
+    <header>
+        <button id="open-sidebar-button" onclick="openSidebar()" aria-label="Ouvrir la bar de navigation" aria-expanded="false" aria-controls="navbar">
+            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#c9c9c9"><path d="M165.13-254.62q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.86q7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.87q-7.22 7.12-17.9 7.12H165.13Zm0-200.25q-10.68 0-17.9-7.27-7.23-7.26-7.23-17.99 0-10.74 7.23-17.87 7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.27 7.23 7.26 7.23 17.99 0 10.74-7.23 17.87-7.22 7.13-17.9 7.13H165.13Zm0-200.26q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.87q7.22-7.12 17.9-7.12h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.86q-7.22 7.13-17.9 7.13H165.13Z"/></svg>
+        </button>
+
+        <nav id="navbar">
+            <ul>
+                <li>
+                    <button id="close-sidebar-button" onclick="closeSidebar()" aria-label="Fermer la bar de navigation">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#c9c9c9"><path d="m480-444.62-209.69 209.7q-7.23 7.23-17.5 7.42-10.27.19-17.89-7.42-7.61-7.62-7.61-17.7 0-10.07 7.61-17.69L444.62-480l-209.7-209.69q-7.23-7.23-7.42-17.5-.19-10.27 7.42-17.89 7.62-7.61 17.7-7.61 10.07 0 17.69 7.61L480-515.38l209.69-209.7q7.23-7.23 17.5-7.42 10.27-.19 17.89 7.42 7.61 7.62 7.61 17.7 0 10.07-7.61 17.69L515.38-480l209.7 209.69q7.23 7.23 7.42 17.5.19 10.27-7.42 17.89-7.62 7.61-17.7 7.61-10.07 0-17.69-7.61L480-444.62Z"/>
+                    </svg>
+                    </button>
+                </li>
+                <li><a href="#top">Projets</a></li>
+                <li><a href="#top">Competences</a></li>
+                <li class="nav-home"><a class="active-link" aria-current="page" href="#top">Home</a></li>
+                <li><a href="#top">Qui&nbsp;&nbsp;je&nbsp;suis&nbsp;?</a></li>
+                <li class="nav-contact"><a href="#top">Contactez&nbsp;moi&nbsp;!</a></li>
+            </ul>
+        </nav>
+        <div id="overlay" onclick="closeSidebar()" aria-hidden="true"></div>
+        <div class="header-container">
+            <h1>Bienvenue sur mon portfolio</h1>
+            <img class="header-perso" src="img/PersoPortfolioTachePinceau.png" alt="">
+            <img class="header-tache header-tache-blue" src="imgTache/TacheBleu.png" alt="">
+            <img class="header-tache header-tache-green" src="imgTache/TacheVert.png" alt="">
+            <img class="header-tache header-tache-orange" src="imgTache/TacheOrange.png" alt="">
+            <img class="header-tache header-tache-red" src="imgTache/TacheRouge2.png" alt="">
+            <img class="header-tache header-tache-yellow" src="imgTache/TacheJaune.png" alt="">
+        </div>
+    </header>
+    <main id="main">
+        <section class="me">
+            <div class="border-title me-part"></div>
+            <div class="me-title title">
+                <h2>Qui je suis ?</h2>
+            </div>
+            <div class="border-title me-part rotate"></div>
+            <div class="me-container">
+                <div class="me-card">
+                    <p class="me-card-title">Louis DUHEZ</p>
+                    <img src="img/me-image.jpg" alt="">
+                    <p class="me-card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, suscipit?</p>
+                </div>
+                <div class="me-details">
+                    <details>
+                        <summary>Mon parcours</summary>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At eum quidem architecto praesentium tenetur quas sunt similique nostrum, sequi harum!</p>
+                    </details>
+                    <details>
+                        <summary>Mes compétences</summary>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At eum quidem architecto praesentium tenetur quas sunt similique nostrum, sequi harum!</p>
+                    </details>
+                    <details>
+                        <summary>Mes passions</summary>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At eum quidem architecto praesentium tenetur quas sunt similique nostrum, sequi harum!</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+        <section class="skills">
+            <div class="border-title skills-part"></div>
+            <div class="skills-title title">
+                <h2>Mes compétences</h2>
+            </div>
+            <div class="border-title skills-part rotate"></div>
+            <div class="skills-container">
+                
+            </div>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    
+</body>
+</html>
