@@ -489,7 +489,7 @@ details {
     gap: 10px;
     display: flex;
     align-items: center;
-    width: 80%;
+    width: 90%;
 }
 
 .top-project-container h2 {
@@ -521,7 +521,7 @@ details {
 .dev-container {
     margin-right: auto;
     margin-left: auto;
-    width: 80%;
+    width: 90%;
     display: flex;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
