@@ -28,7 +28,6 @@ html, body {
   }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
     font-family: "Montserrat", serif;
 }
@@ -327,9 +326,6 @@ details {
 
 }
 
-.skills-container {
-
-}
 
 .skills-card {
     margin-left: auto;
