@@ -25,7 +25,7 @@ body {
     height: 100vh;
     font-family: "Montserrat", serif;
     width: 100vw;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
 }
 
 .skip-link {
@@ -333,6 +333,19 @@ details {
     margin-bottom: 100px;
 }
 
+.skills-video {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills-card-background video {
+    height: 100%;
+}
+
 .skills-card-text {
     margin-top: 10px;
     border-top: #1E1E1E solid 1px;
@@ -366,40 +379,185 @@ details {
 
 .skills-card img {
     position: absolute;
+
 }
 
 .menu-ps {
     width: 30px;
     left: -35px;
     top: -20px;
+    animation: float 6s ease-in-out infinite;
 }
 
 .photoshopcolor {
     width: 200px;
     right: -130px;
     top: 20%;
+    animation: float 7s ease-in-out infinite;
 }
 
 .photoshop-toolBar {
     width: 300px;
     bottom: 10px;
     left: 20px;
+    animation: float 8s ease-in-out infinite;
 }
 
 .HTML5 {
     width: 100px;
     top: -30px;
     left: -30px;
+    animation: float 6.5s ease-in-out infinite;
 }
+
 .Javascript {
     width: 100px;
     top: 30%;
     right: -20px;
+    animation: float 7.5s ease-in-out infinite;
 }
 
 .CSS3 {
     width: 70px;
     bottom: 0px;
     left: -30px;
-
+    animation: float 5.5s ease-in-out infinite;
 }
+
+.timeline {
+    width: 300px;
+    bottom: -5px;
+    left: -10%;
+    animation: float 9s ease-in-out infinite;
+}
+
+.effect {
+    width: 100px;
+    top: -30px;
+    right: -30px;
+    animation: float 5s ease-in-out infinite;
+}
+
+.toolbar {
+    width: 30px;
+    top: -15px;
+    left: -15px;
+    animation: float 4.5s ease-in-out infinite;
+}
+
+.ue5-tool {
+    width: 300px;
+    top: 0;
+    left: 0;
+    animation: float 8.5s ease-in-out infinite;
+}
+
+.ue5-file {
+    width: 150px;
+    bottom: -20px;
+    right: -60px;
+    animation: float 7s ease-in-out infinite;
+}
+
+.ue5-dock {
+    width: 200px;
+    left: -30px;
+    bottom: -5px;
+    animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-10px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+.project-container {
+    width: 100%;
+    
+}
+
+.top-project-container {
+    margin-right: auto;
+    margin-left: auto;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+
+.top-project-container h2 {
+    margin-right: auto;
+}
+
+.slide-button {
+    background-color: transparent;
+    color: var(--main-black); 
+    font-size: 1.5rem; 
+    border: 2px solid var(--main-black); 
+    border-radius: 50%; 
+    padding: 10px; 
+    width: 40px; 
+    height: 40px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+}
+
+.slide-button:hover {
+    background-color: var(--main-black); 
+    color: white; 
+    transform: scale(1.1); 
+}
+
+.dev-container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 80%;
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    gap: 1em;
+}
+.project-card {
+    width: 90%;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+}
+.project-card img{
+    width: 100%;
+}
+
+.project-competence {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+.project-competence p {
+    padding: 5px 10px;
+    color: black;
+    border: #1E1E1E solid 2px;
+    border-radius: 8px;
+}
+
+/* .JS {
+    background-color: #F0BE25;
+}
+
+.D-trois {
+    background-color: #DF763D;
+}
+
+.HTML {
+    background-color: #F16529;
+}
+.CSS {
+    background-color: #2965F1;
+} */
