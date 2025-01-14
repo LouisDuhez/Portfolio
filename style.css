@@ -20,12 +20,17 @@
     padding: 0;
 }
 
+html, body {
+    overflow-x: hidden;
+  }
+ body {
+    width:100%;
+  }
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
     font-family: "Montserrat", serif;
-    width: 100vw;
-    overflow-x: hidden;
 }
 
 .skip-link {
@@ -527,6 +532,7 @@ details {
     gap: 1em;
 }
 .project-card {
+    margin-top: 30px;
     width: 90%;
     flex-shrink: 0;
     scroll-snap-align: start;
