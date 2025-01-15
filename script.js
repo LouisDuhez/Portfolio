@@ -60,21 +60,23 @@ navLinks.forEach(link => {
   })
 });
 
-const devContainer = document.querySelector('.dev-container');
 
 
 
-function nextSlide() {
-    const scrollAmount = devContainer.offsetWidth + parseInt(getComputedStyle(devContainer).gap);
-    devContainer.scrollBy({
+
+function nextSlide(button) {
+    let container = button.closest('.project-container').querySelector('.dev-container');
+    const scrollAmount = container.offsetWidth + parseInt(getComputedStyle(container).gap);
+    container.scrollBy({
         left: scrollAmount,
         behavior: 'smooth'
     });
 }
 
-function previousSlide() {
-    const scrollAmount = devContainer.offsetWidth + parseInt(getComputedStyle(devContainer).gap);
-    devContainer.scrollBy({
+function previousSlide(button) {
+    let container = button.closest('.project-container').querySelector('.dev-container');
+    const scrollAmount = container.offsetWidth + parseInt(getComputedStyle(container).gap);
+    container.scrollBy({
         left: -scrollAmount,
         behavior: 'smooth'
     });

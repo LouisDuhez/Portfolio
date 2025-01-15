@@ -6,8 +6,9 @@
     <title>Louis Duhez Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 </head>
-<body>
+<body >
     <div class="load-container">
 
         <div class="anim-bloc">
@@ -25,7 +26,7 @@
   
       </div>
     <a href="#main" class="skip-link">Aller au contenu principal</a>
-    <header>
+    <header id="top">
         <button id="open-sidebar-button" onclick="openSidebar()" aria-label="Ouvrir la bar de navigation" aria-expanded="false" aria-controls="navbar">
             <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#c9c9c9"><path d="M165.13-254.62q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.86q7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.87q-7.22 7.12-17.9 7.12H165.13Zm0-200.25q-10.68 0-17.9-7.27-7.23-7.26-7.23-17.99 0-10.74 7.23-17.87 7.22-7.13 17.9-7.13h629.74q10.68 0 17.9 7.27 7.23 7.26 7.23 17.99 0 10.74-7.23 17.87-7.22 7.13-17.9 7.13H165.13Zm0-200.26q-10.68 0-17.9-7.26-7.23-7.26-7.23-18t7.23-17.87q7.22-7.12 17.9-7.12h629.74q10.68 0 17.9 7.26 7.23 7.26 7.23 18t-7.23 17.86q-7.22 7.13-17.9 7.13H165.13Z"/></svg>
         </button>
@@ -38,11 +39,11 @@
                     </svg>
                     </button>
                 </li>
-                <li><a href="#top">Projets</a></li>
-                <li><a href="#top">Competences</a></li>
                 <li class="nav-home"><a class="active-link" aria-current="page" href="#top">Home</a></li>
-                <li><a href="#top">Qui&nbsp;&nbsp;je&nbsp;suis&nbsp;?</a></li>
-                <li class="nav-contact"><a href="#top">Contactez&nbsp;moi&nbsp;!</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#skills">Competences</a></li>
+                <li><a href="#about">Qui&nbsp;&nbsp;je&nbsp;suis&nbsp;?</a></li>
+                <li class="nav-contact"><a href="#contact">Contactez&nbsp;moi&nbsp;!</a></li>
             </ul>
         </nav>
         <div id="overlay" onclick="closeSidebar()" aria-hidden="true"></div>
@@ -57,7 +58,7 @@
         </div>
     </header>
     <main id="main">
-        <section class="me">
+        <section class="me" id="about">
             <div class="border-title me-part"></div>
             <div class="me-title title">
                 <h2>Qui je suis ?</h2>
@@ -85,7 +86,7 @@
                 </div>
             </div>
         </section>
-        <section class="skills">
+        <section class="skills" id="skills">
             <div class="border-title skills-part"></div>
             <div class="skills-title title">
                 <h2>Mes compétences</h2>
@@ -143,12 +144,17 @@
                 </div>
               </div>
         </section>
-        <section class="project">
+        <section class="project" id="projects">
+          <div class="border-title project-part"></div>
+            <div class="project-title title">
+                <h2>Mes projets</h2>
+            </div>
+            <div class="border-title project-part rotate"></div>
           <div class="project-container">
             <div class="top-project-container">
               <h2>Mes projets de développement</h2>
-              <button class="slide-button" onclick="previousSlide()">&lsaquo;</button>
-              <button  class="slide-button" onclick="nextSlide()">&rsaquo;</button>
+              <button class="slide-button" onclick="previousSlide(this)">&lsaquo;</button>
+              <button  class="slide-button" onclick="nextSlide(this)">&rsaquo;</button>
               
             </div>
             <div class="dev-container">
@@ -232,8 +238,8 @@
           <div class="project-container">
             <div class="top-project-container">
               <h2>Mes créations</h2>
-              <button class="slide-button" onclick="previousSlide()">&lsaquo;</button>
-              <button  class="slide-button" onclick="nextSlide()">&rsaquo;</button>
+              <button class="slide-button" onclick="previousSlide(this)">&lsaquo;</button>
+              <button  class="slide-button" onclick="nextSlide(this)">&rsaquo;</button>
               
             </div>
             <div class="dev-container">
@@ -292,8 +298,8 @@
           <div class="project-container">
             <div class="top-project-container">
               <h2>3D</h2>
-              <button class="slide-button" onclick="previousSlide()">&lsaquo;</button>
-              <button  class="slide-button" onclick="nextSlide()">&rsaquo;</button>
+              <button class="slide-button" onclick="previousSlide(this)">&lsaquo;</button>
+              <button  class="slide-button" onclick="nextSlide(this)">&rsaquo;</button>
               
             </div>
             <div class="dev-container">
@@ -364,8 +370,8 @@
           <div class="project-container">
             <div class="top-project-container">
               <h2>Animation 2D</h2>
-              <button class="slide-button" onclick="previousSlide()">&lsaquo;</button>
-              <button  class="slide-button" onclick="nextSlide()">&rsaquo;</button>
+              <button class="slide-button" onclick="previousSlide(this)">&lsaquo;</button>
+              <button  class="slide-button" onclick="nextSlide(this)">&rsaquo;</button>
               
             </div>
             <div class="dev-container">
@@ -391,8 +397,8 @@
           <div class="project-container">
             <div class="top-project-container">
               <h2>Création 2D</h2>
-              <button class="slide-button" onclick="previousSlide()">&lsaquo;</button>
-              <button  class="slide-button" onclick="nextSlide()">&rsaquo;</button>
+              <button class="slide-button" onclick="previousSlide(this)">&lsaquo;</button>
+              <button  class="slide-button" onclick="nextSlide(this)">&rsaquo;</button>
               
             </div>
             <div class="dev-container">
@@ -460,8 +466,8 @@
           <div class="project-container">
             <div class="top-project-container">
               <h2>Vidéo Editing</h2>
-              <button class="slide-button" onclick="previousSlide()">&lsaquo;</button>
-              <button  class="slide-button" onclick="nextSlide()">&rsaquo;</button>
+              <button class="slide-button" onclick="previousSlide(this)">&lsaquo;</button>
+              <button  class="slide-button" onclick="nextSlide(this)">&rsaquo;</button>
               
             </div>
             <div class="dev-container">
@@ -504,8 +510,98 @@
           </div>
 
         </section>
+        <section class="opquast">
+          <h2>Certification Opquast</h2>
+          <details>
+            <summary>Opquast c'est quoi ?</summary>
+            <p>Opquast est une <strong>certification</strong> visant à <strong>améliorer la qualité du web</strong> en formant aux <strong>bonnes pratiques en matière d’accessibilité, de performance, de sécurité et de respect des utilisateurs</strong>. Elle permet aux certifiés de concevoir des interfaces plus accessibles, inclusives et durables. En s'engageant dans cette démarche, Opquast contribue à bâtir un web plus fiable et de meilleure qualité pour tous.</p>
+          </details>
+          <details>
+            <summary>Pourquoi Opquast ?</summary>
+            <p>
+              Passer cette certification en avril 2025 est important pour moi, car elle me permet de <strong>créer</strong> et <strong>développer</strong> de manière plus <strong>responsable</strong>, en prenant en compte des détails qui m'étaient jusqu’alors invisibles. Opquast m’aide à <strong>élargir ma vision du design</strong> et à affiner mon souci du détail, notamment en matière d’accessibilité. Elle m’a également introduit aux normes WCAG, ce qui me permet de continuer à me former sur ce sujet essentiel.
+            </p>
+          </details>
+        </section>
+        <!-- <section class="avis">
+          <div class="avis-container">
+            <h2>Ce que l'on pense de moi </h2>
+            <div class="list-avis">
+              <div class="avis-slide">
+                <div class="avis-bloc">
+                  <h3>Axel Charbonneau-Postic</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, assumenda nemo! Quas corrupti repudiandae iste voluptates facere labore libero? Nulla provident repellendus voluptates itaque quaerat optio numquam vero possimus laborum.</p>
+                </div>
+                <div class="avis-bloc">
+                  <h3>Axel Charbonneau-Postic</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, assumenda nemo! Quas corrupti repudiandae iste voluptates facere labore libero? Nulla provident repellendus voluptates itaque quaerat optio numquam vero possimus laborum.</p>
+                </div>
+                <div class="avis-bloc">
+                  <h3>Axel Charbonneau-Postic</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, assumenda nemo! Quas corrupti repudiandae iste voluptates facere labore libero? Nulla provident repellendus voluptates itaque quaerat optio numquam vero possimus laborum.</p>
+                </div>
+                <div class="avis-bloc">
+                  <h3>Axel Charbonneau-Postic</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, assumenda nemo! Quas corrupti repudiandae iste voluptates facere labore libero? Nulla provident repellendus voluptates itaque quaerat optio numquam vero possimus laborum.</p>
+                </div>
+                <div class="avis-bloc">
+                  <h3>Axel Charbonneau-Postic</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, assumenda nemo! Quas corrupti repudiandae iste voluptates facere labore libero? Nulla provident repellendus voluptates itaque quaerat optio numquam vero possimus laborum.</p>
+                </div>
+                <div class="avis-bloc">
+                  <h3>Axel Charbonneau-Postic</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, assumenda nemo! Quas corrupti repudiandae iste voluptates facere labore libero? Nulla provident repellendus voluptates itaque quaerat optio numquam vero possimus laborum.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> -->
+        <section class="contact" id="contact">
+          <div class="contact-top">
+            <h2>Contactez moi !</h2>
+            <p>Vous pouvez me contacter :</p>
+          </div>
+          <div class="contact-container">
+            <div class="contact-list">
+              <h3>Développement</h3>
+              <a href="https://github.com/LouisDuhez">Github <span class="fleche">&#8594;</span></a>
+            </div>
+            <div class="contact-list">
+              <h3>Réseaux</h3>
+              <a href="https://www.linkedin.com/in/louis-duhez-ba6440296/">LinkedIn <span class="fleche">&#8594;</span></a>
+              <br>
+              <a href="https://www.instagram.com/louis_dhz_/">Instagram <span class="fleche">&#8594;</span></a>
+            </div>
+            <div class="contact-list">
+              <h3>Contact</h3>
+              <a href="https://www.linkedin.com/in/louis-duhez-ba6440296/">E-mail <span class="fleche">&#8594;</span></a>
+              <p>Tél : 07 89 00 09 21</p>
+            </div>
+          </div>
+        </section>
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <div class="border-title me-part"></div>
+    <footer>
+      
+      <div class="footer-container">
+          <div class="footer-info">
+              <p>Louis Duhez - Développeur et Créateur de contenu</p>
+              <p>© 2025 Louis Duhez - Tous droits réservés</p>
+          </div>
+          <div class="footer-links">
+              <a href="#projects">Projets</a>
+              <a href="#about">À propos</a>
+              <a href="img/Louis DUHEZ.pdf" target="_blank">Télécharger mon CV</a>
+          </div>
+          <div class="footer-socials">
+              <a href="https://www.linkedin.com/in/louis-duhez-ba6440296/" target="_blank">LinkedIn</a>
+              <a href="https://github.com/LouisDuhez" target="_blank">GitHub</a>
+          </div>
+      </div>
+  </footer>
+
+    
+    
     
 </body>
 </html>
