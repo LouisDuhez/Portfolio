@@ -480,6 +480,7 @@ details {
 
 .project-container {
     width: 100%;
+    margin-bottom: 80px;
     
 }
 
@@ -534,6 +535,9 @@ details {
     scroll-snap-align: start;
 }
 .project-card img{
+    width: 100%;
+}
+.project-card video{
     width: 100%;
 }
 
