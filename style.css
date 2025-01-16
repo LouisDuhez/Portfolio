@@ -171,7 +171,7 @@ body {
 }
 
 .header-tache {
-    max-width: 250px;
+    max-width: 300px;
     position: absolute;
     transform: translate(-50%, -50%);
     z-index: -1;
@@ -179,22 +179,22 @@ body {
 
 .header-tache-yellow {
     right: -250px;
-    top: 30px;
+    top: 80px;
 }
 .header-tache-orange {
-    bottom: 0px;
+    bottom: -150px;
     left: 50px;
 }
 .header-tache-blue {
-    top: 0px;
+    top: 80px;
 }
 .header-tache-red {
-    bottom: 0px;
+    bottom: -60px;
     right: -150px;
 }
 .header-tache-green {
-    top: 30%;
-    left: 50%;
+    top: 50%;
+    left: 30%;
 }
 /*----Fin Tache---- */
 
@@ -719,6 +719,7 @@ footer {
     padding: 20px 0;
     text-align: center;
     font-family: 'Roboto', sans-serif;
+    min-height: 20vh;
 }
 
 .footer-container {
@@ -755,10 +756,155 @@ footer {
     text-decoration: underline;
 }
 
+.header-container h1 {
+    position: relative;
+    left: 25%;
+    font-size: 1.5rem;
+    padding: 15px 25px;
+    rotate: -2deg;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    border: solid 3px var(--main-black);
+}
+.header-perso {
+    position: relative;
+    left: 10%;
+    max-width: 1300px;
+    width: 70%;
+}
+
+.header-bloc {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 @media (max-width: 600px) {
     .footer-links,
     .footer-socials {
         flex-direction: column;
         gap: 10px;
+    }
+}
+
+@media screen and (width > 900px) {
+    .header-tache {
+        max-width: 700px;
+        width: 50%;
+    }
+
+    .header-tache-blue {
+        top: 100px;
+    }
+    .header-tache-orange {
+        bottom: -200px;
+        left: 150px;
+    }
+
+    .header-tache-yellow {
+        right: -600px;
+    }
+
+    .header-tache-red {
+        bottom: -200px;
+        right: -500px;
+    }
+
+    .header-tache-green {
+        left: 50%;
+    }
+
+
+    .header-container h1 {
+        position: relative;
+        left: 25%;
+        font-size: 3rem;
+        padding: 15px 25px;
+        rotate: -2deg;
+        background-color: #FFFFFF;
+        border-radius: 8px;
+        border: solid 3px var(--main-black);
+    }
+    .header-perso {
+        position: relative;
+        left: 10%;
+        max-width: 1300px;
+        width: 70%;
+    }
+
+    .header-bloc {
+        margin-top: -200px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header-container {
+        margin-top: 150px;
+    }
+
+    .title {
+        min-height: 80vh;
+    }
+
+    .me-container {
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+    }
+
+    .me-card {
+        width: 40%;
+    }
+
+    .me-details {
+        width: 40%;
+    }
+
+    .skills-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .skills-card-background {
+        width: 50%;
+        border-radius: 16px;
+    }
+
+    .skills-card-text {
+        width: 40%;
+        border: 0;
+        border-left: solid var(--main-black) 3px;
+        padding-left: 20px;
+        
+    }
+
+    .skills-card:nth-child(odd) {
+        flex-direction: row-reverse;
+        .skills-card-text {
+            border: 0;
+            border-right: solid var(--main-black) 3px;
+            padding-right: 20px;
+        }
+    }
+
+    .project-card {
+        max-width: 30%;
+    }
+
+    .contact {
+        text-align: center;
+    }
+
+    .border-title {
+        margin-top: 0;
+        height: 300px;
     }
 }

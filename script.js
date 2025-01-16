@@ -12,7 +12,7 @@ function loader() {
   .add(() => {
     document.querySelector('.flip-img1').style.backgroundColor = "";
     // document.querySelector('.flip-img1').style.backgroundImage = "url('ressources/image1.jpg')";
-    document.querySelector('.flip-img1 p').innerHTML = "<p>Creation</p>";
+    document.querySelector('.flip-img1 p').innerHTML = "<p>Création</p>";
   })
   .to('.f2', {y: '-100%'})
 
