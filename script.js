@@ -20,7 +20,43 @@ function loader() {
   .add(()=> {
     document.querySelector('.load-container').style.display = "none";
   })
+  .to('.header-bloc', {x: -750, duration: 1.3, ease: 'power2.out'}, '-=1') 
+  .to('.header-tache-yellow', {x: -250, duration: 1.3, ease: 'power2.out'}, '-=1.3') 
+  .to('.header-tache-blue', {x: 250, duration: 1.3, ease: 'power2.out'}, '-=1.3')
+  .to('.header-tache-green', {x: 250, duration: 1.3, ease: 'power2.out'}, '-=1.3')
+  .to('.header-tache-red', {x: -250, duration: 1.3, ease: 'power2.out'}, '-=1.3')
+  .to('.header-tache-orange', {x: 250, duration: 1.3, ease: 'power2.out'}, '-=1.3');
 }
+
+const tl = gsap.timeline({
+  scrollTrigger: { 
+    trigger: "header", 
+    start: "top top", 
+    end: "bottom bottom", 
+    scrub: 1, 
+  }
+});
+
+tl.to('.header-tache-yellow', { y: -300, duration: 1 }, 0)
+  .to('.header-tache-blue', { y: -300,  duration: 1 }, 0)
+  .to('.header-tache-green', { y: -300,   duration: 1 }, 0)
+  .to('.header-tache-red', { y: -300,   duration: 1 }, 0)
+  .to('.header-tache-orange', { y: -300,  duration: 1 }, 0);
+
+
+const tlMe = gsap.timeline({
+  scrollTrigger: { 
+    trigger: ".me-container", 
+    start: "top bottom", 
+    end: "bottom top", 
+    scrub: false, 
+  }
+});
+
+tlMe.to('.me-card', { x: 300, duration: 1 }, 0)
+tlMe.to('.me-details', { x: -300, duration: 1 }, 0)
+
+
 
 const navBar = document.querySelector('nav')
 const openButton = document.getElementById('open-sidebar-button')

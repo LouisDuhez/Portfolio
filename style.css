@@ -171,30 +171,31 @@ body {
 }
 
 .header-tache {
-    max-width: 300px;
+    max-width: 500px;
     position: absolute;
     transform: translate(-50%, -50%);
     z-index: -1;
 }
 
 .header-tache-yellow {
-    right: -250px;
+    right: -700px;
     top: 80px;
 }
 .header-tache-orange {
-    bottom: -150px;
-    left: 50px;
+    bottom: -250px;
+    left: -150px;
 }
 .header-tache-blue {
     top: 80px;
+    left: -200px;
 }
 .header-tache-red {
-    bottom: -60px;
-    right: -150px;
+    bottom: -100px;
+    right: -550px;
 }
 .header-tache-green {
     top: 50%;
-    left: 30%;
+    left: 0%;
 }
 /*----Fin Tache---- */
 
@@ -243,6 +244,7 @@ body {
 
 .me-card {
     position: relative;
+    left: -300px;
     margin-right: auto;
     margin-left: auto;
     border: solid 1px var(--main-black);
@@ -276,6 +278,8 @@ body {
 }
 
 .me-details {
+    position: relative;
+    left: 300px;
     width: 70%;
     margin-right: auto;
     margin-left: auto;
@@ -758,7 +762,7 @@ footer {
 
 .header-container h1 {
     position: relative;
-    left: 25%;
+    left: 30%;
     font-size: 1.5rem;
     padding: 15px 25px;
     rotate: -2deg;
@@ -769,11 +773,13 @@ footer {
 .header-perso {
     position: relative;
     left: 10%;
-    max-width: 1300px;
-    width: 70%;
+    max-width: 1900px;
+    width: 100%;
 }
 
 .header-bloc {
+    position: relative;
+    left: 750px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -835,6 +841,8 @@ footer {
     }
 
     .header-bloc {
+        position: relative;
+        left: 750px;
         margin-top: -200px;
         width: 100%;
         display: flex;
@@ -906,5 +914,92 @@ footer {
     .border-title {
         margin-top: 0;
         height: 300px;
+    }
+    .menu-ps {
+        max-width: 70px;
+        width: 10%;
+        left: -35px;
+        top: -20px;
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    .photoshopcolor {
+        max-width: 400px;
+        width: 40%;
+        right: -130px;
+        top: 20%;
+        animation: float 7s ease-in-out infinite;
+    }
+    
+    .photoshop-toolBar {
+
+        width: 80%;
+        bottom: 10px;
+        left: 20px;
+        animation: float 8s ease-in-out infinite;
+    }
+    
+    .HTML5 {
+        width: 20%;
+        top: -30px;
+        left: -30px;
+        animation: float 6.5s ease-in-out infinite;
+    }
+    
+    .Javascript {
+        width: 20%;
+        top: 30%;
+        right: -20px;
+        animation: float 7.5s ease-in-out infinite;
+    }
+    
+    .CSS3 {
+        width: 20%;
+        bottom: 0px;
+        left: -30px;
+        animation: float 5.5s ease-in-out infinite;
+    }
+    
+    .timeline {
+        width: 80%;
+        bottom: -5px;
+        left: -10%;
+        animation: float 9s ease-in-out infinite;
+    }
+    
+    .effect {
+        width: 30%;
+        top: -30px;
+        right: -30px;
+        animation: float 5s ease-in-out infinite;
+    }
+    
+    .toolbar {
+        max-width: 70px;
+        width: 10%;
+        top: -15px;
+        left: -15px;
+        animation: float 4.5s ease-in-out infinite;
+    }
+    
+    .ue5-tool {
+        width: 60%;
+        top: 0;
+        left: 0;
+        animation: float 8.5s ease-in-out infinite;
+    }
+    
+    .ue5-file {
+        width: 30%;
+        bottom: -20px;
+        right: -60px;
+        animation: float 7s ease-in-out infinite;
+    }
+    
+    .ue5-dock {
+        width: 60%;
+        left: -30px;
+        bottom: -5px;
+        animation: float 6s ease-in-out infinite;
     }
 }
