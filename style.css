@@ -870,10 +870,12 @@ footer {
 
     .me-card {
         width: 40%;
+        left: -300px;
     }
 
     .me-details {
         width: 40%;
+        left: 300px;
     }
 
     .skills-card {
