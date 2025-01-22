@@ -47,9 +47,9 @@ tl.to('.header-tache-yellow', { y: -300, duration: 1 }, 0)
 const tlMe = gsap.timeline({
   scrollTrigger: { 
     trigger: ".me-container", 
-    start: "top bottom", 
-    end: "bottom top", 
-    scrub: false, 
+    start: "top 80%",  
+    end: "top 20%",    
+    scrub: false,       
   }
 });
 
@@ -62,7 +62,7 @@ const navBar = document.querySelector('nav')
 const openButton = document.getElementById('open-sidebar-button')
 const closeButton = document.getElementById('close-sidebar-button')
 
-const media = window.matchMedia("(width < 700px)")
+const media = window.matchMedia("(max-width: 900px)");
 
 media.addEventListener('change', (e)=> updateNavbar(e))
 
@@ -78,24 +78,32 @@ function updateNavbar (e) {
 updateNavbar(media)
 
 function openSidebar() {
-  navBar.classList.add('show')
-  openButton.setAttribute('aria-expanded','true')
-  navBar.removeAttribute('inert')
+  console.log('Opening sidebar');
+  navBar.classList.add('show');
+  openButton.setAttribute('aria-expanded', 'true');
+  navBar.removeAttribute('inert');
 }
 
 function closeSidebar() {
-  navBar.classList.remove('show')
-  closeButton.setAttribute('aria-expanded','false')
-  navBar.setAttribute('inert','')
+  console.log('Closing sidebar');
+  navBar.classList.remove('show');
+  closeButton.setAttribute('aria-expanded', 'false');
+  navBar.setAttribute('inert', '');
 }
 
-const navLinks = document.querySelectorAll('nav a')
-navLinks.forEach(link => {
-  link.addEventListener('click', ()=> {
-    closeSidebar()
-  })
-});
+const navLinks = document.querySelectorAll('nav a');
 
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (media.matches) { // Vérifie si l'écran est en mode mobile (max-width: 900px)
+      closeSidebar();
+    }
+    else {
+      navBar.classList.remove('show');
+      closeButton.setAttribute('aria-expanded', 'false');
+    }
+  });
+});
 
 
 
