@@ -500,9 +500,12 @@ details {
 }
 
 .project-container {
-    width: 100%;
-    margin-bottom: 80px;
-    
+    width: 100%;  
+}
+
+
+.project-container h2 {
+    font-size: 2rem;
 }
 
 .top-project-container {
@@ -547,19 +550,54 @@ details {
     display: flex;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
+    padding-bottom: 50px;
     gap: 1em;
 }
-.project-card {
+
+.dev-container a {
+    color: #1E1E1E;
+    text-decoration: none;
     margin-top: 30px;
     width: 90%;
     flex-shrink: 0;
     scroll-snap-align: start;
+    
+
+}
+
+.dev-container a:hover {
+    .project-card {
+        transform: scale(1.1);
+    }
+    .project-card img {
+        border-radius: 8px;
+    }
+    .project-card video {
+        border-radius: 8px;
+    }
+    .project-card h3 {
+        text-decoration: underline;
+    }
+}
+
+.project-card {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    width: 90%;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    transition: .3s ease-out;
 }
 .project-card img{
     width: 100%;
+    border-radius: 16px;
+    transition: .3s ease-out;
 }
 .project-card video{
     width: 100%;
+    border-radius: 16px;
+    transition: .3s ease-out;
 }
 
 .project-competence {
@@ -878,6 +916,8 @@ footer {
         left: 300px;
     }
 
+
+
     .skills-card {
         display: flex;
         justify-content: space-between;
@@ -906,7 +946,8 @@ footer {
         }
     }
 
-    .project-card {
+
+    .dev-container a {
         max-width: 30%;
     }
 
@@ -1005,4 +1046,38 @@ footer {
         bottom: -5px;
         animation: float 6s ease-in-out infinite;
     }
+}
+
+.project-gallerie {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.project-gallerie img {
+    width: 100%;
+}
+
+.projet-desc {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 50px;
+}
+
+.projet-desc img {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.project-h1 {
+    margin-top: 60px;
+    font-size: 1.5rem;
 }
