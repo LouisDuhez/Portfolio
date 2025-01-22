@@ -245,7 +245,7 @@ body {
 
 .me-card {
     position: relative;
-    left: -300px;
+    left: 0px;
     margin-right: auto;
     margin-left: auto;
     border: solid 1px var(--main-black);
@@ -280,7 +280,7 @@ body {
 
 .me-details {
     position: relative;
-    left: 300px;
+    left: 0px;
     width: 70%;
     margin-right: auto;
     margin-left: auto;
