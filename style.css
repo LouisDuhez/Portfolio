@@ -287,7 +287,8 @@ body {
 }
 
 details {
-    font-size: 1.125rem;
+    font-size: 1rem;
+    line-height: 1.2;
     width: 100%;
     border-bottom: var(--main-orange) 3px solid;
   }

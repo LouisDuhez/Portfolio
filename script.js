@@ -48,7 +48,7 @@ const tlMe = gsap.timeline({
   scrollTrigger: { 
     trigger: ".me-container", 
     start: "top 80%",  
-    end: "top 20%",    
+    end: "end",    
     scrub: false,       
   }
 });
