@@ -5,6 +5,12 @@
     z-index: 9;
     display: none;
 }
+
+html.nav-open,
+body.nav-open {
+    overflow: hidden;
+}
+
 nav {
     position: fixed;
     top: 0;
@@ -38,16 +44,22 @@ nav li {
 }
 
 nav a {
-    width: fit-content;
+    display: block;
+    width: 100%;
     border-bottom: solid 1px var(--main-black);
     padding: 15px 25px;
-    padding-right: 100%;
     color: black;
     text-decoration: none;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
 }
 
 nav a:hover {
     text-decoration: underline;
+}
+
+nav a:focus-visible {
+    outline: 3px solid var(--second-orange);
+    outline-offset: 3px;
 }
 
 .nav-contact {
@@ -58,7 +70,9 @@ nav a:hover {
     order: 0;
 }
 
-svg {
+nav svg,
+#open-sidebar-button svg,
+#close-sidebar-button svg {
     fill: black;
 }
 
@@ -113,7 +127,6 @@ svg {
     }
 
     nav:hover {
-        padding: 15px 0;
         background-color: rgba(255, 255, 255, 0.211);
     }
 
@@ -131,5 +144,14 @@ svg {
     .nav-contact {
         margin-left: auto;
         
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    nav {
+        transition: none;
+    }
+    nav a {
+        transition: none;
     }
 }
