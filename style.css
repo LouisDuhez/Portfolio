@@ -1,4 +1,4 @@
-@import url(nav.css);
+/* nav.css is now linked in HTML to avoid @import blocking */
 
 :root {
     --main-black: #1E1E1E;
@@ -522,21 +522,7 @@ html.js.skills-anim #containerSkills .skills-card:nth-child(even) {
     background-repeat: no-repeat;
     background-position: center;
 }
-
-.crea {
-    background-image: url(img/CreaIMG.jpg);
-}
-
-.unreal {
-    background-image: url(img/3DIMG.jpg);
-}
-.video {
-    background-image: url(img/videoIMG.jpg);
-}
-
-.dev {
-    background-image: url(img/devIMG.png);
-}
+/* Background images for skills are lazy-loaded via JS using data-bg attributes */
 
 .skills-card img {
     position: absolute;

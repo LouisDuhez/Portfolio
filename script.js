@@ -42,6 +42,8 @@ window.addEventListener('load', () => {
   initProjectsAnimations();
   initContactAnimations();
   initFooterAnimations();
+  initLazyBackgrounds();
+  initVideoVisibilityAutoplay();
 });
 function initFooterAnimations() {
   if (!window.gsap || !window.ScrollTrigger) return;
@@ -214,6 +216,57 @@ function loader(isNarrow) {
     if (!prefersReducedMotion) {
       gsap.to('.header-perso', { rotate: 1.2, duration: 2.4, yoyo: true, repeat: -1, ease: 'sine.inOut' });
     }
+}
+
+// Lazy load background images for skills cards using data-bg
+function initLazyBackgrounds() {
+  const targets = Array.from(document.querySelectorAll('.skills-card-background[data-bg]'));
+  if (!targets.length) return;
+
+  const setBg = (el) => {
+    const src = el.getAttribute('data-bg');
+    if (!src || el.dataset.bgLoaded) return;
+    el.style.backgroundImage = `url(${src})`;
+    el.dataset.bgLoaded = 'true';
+  };
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setBg(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '200px' });
+
+  targets.forEach((el) => io.observe(el));
+}
+
+// Play/pause videos when visible; set lightweight preload
+function initVideoVisibilityAutoplay() {
+  const vids = Array.from(document.querySelectorAll('video'));
+  if (!vids.length) return;
+
+  vids.forEach((v) => {
+    if (!v.hasAttribute('preload')) v.setAttribute('preload', 'metadata');
+    v.playsInline = true;
+    // Avoid autoplay until visible
+    try { v.pause(); } catch {}
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const v = entry.target;
+      if (!(v instanceof HTMLVideoElement)) return;
+      if (entry.isIntersecting) {
+        v.play().catch(() => {});
+      } else {
+        try { v.pause(); } catch {}
+      }
+    });
+  }, { threshold: 0.25 });
+
+  vids.forEach((v) => io.observe(v));
 }
 
 function initScrollTimelines() {
@@ -673,6 +726,7 @@ function previousSlide(button) {
 }
 
 // Petites optimisations (sans changer le rendu)
+// Progressive enhancement: ensure project images are lazy/async (HTML already updated elsewhere for galleries)
 document.querySelectorAll('#projects img').forEach((img) => {
   if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
   if (!img.hasAttribute('decoding')) img.setAttribute('decoding', 'async');
@@ -682,6 +736,19 @@ document.querySelectorAll('#projects video').forEach((video) => {
   if (!video.hasAttribute('preload')) video.setAttribute('preload', 'metadata');
   video.playsInline = true;
 });
+
+// Skip splash loader on slow networks or data-saver
+try {
+  const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const saveData = conn && conn.saveData;
+  const slow = conn && (conn.effectiveType && conn.effectiveType.includes('2g'));
+  if ((saveData || slow) && !prefersReducedMotion) {
+    const loadContainer = document.querySelector('.load-container');
+    if (loadContainer) {
+      loadContainer.style.display = 'none';
+    }
+  }
+} catch {}
 
 initProjectLightbox();
 

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Louis Duhez Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="nav.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -59,7 +60,7 @@
         <div id="overlay" onclick="closeSidebar()" aria-hidden="true"></div>
         <div class="header-container">
             <div class="header-bloc">
-              <h1>Bienvenue sur mon portfolio</h1>
+              <h1>Bienvenue sur le potfolio de Louis DUHEZ</h1>
               <img class="header-perso" src="img/PersoPortfolioTachePinceau.png" alt="">
             </div>
             <img class="header-tache header-tache-blue" src="imgTache/TacheBleu.png" alt="">
@@ -72,14 +73,14 @@
     <main id="main">
         <section class="me" id="about">
             <div class="paint-splats paint-splats--about" aria-hidden="true">
-              <img class="splat s1" src="imgTache/TacheOrange2.png" alt="">
-              <img class="splat s2" src="imgTache/TacheBleu2.png" alt="">
-              <img class="splat s3" src="imgTache/TacheJaune.png" alt="">
+              <img class="splat s1" src="imgTache/TacheOrange2.png" alt="" loading="lazy" decoding="async">
+              <img class="splat s2" src="imgTache/TacheBleu2.png" alt="" loading="lazy" decoding="async">
+              <img class="splat s3" src="imgTache/TacheJaune.png" alt="" loading="lazy" decoding="async">
             </div>
             <div class="me-container">
                 <div class="me-card">
                     <p class="me-card-title">Louis DUHEZ</p>
-                    <img src="img/me-image.jpg" alt="">
+                    <img src="img/me-image.jpg" alt="" loading="lazy" decoding="async">
                   <p class="me-card-text"><strong>Motion designer en devenir</strong>, je transforme des <strong>idées</strong> en <strong>images en mouvement</strong>. J’aime donner du <strong>rythme</strong> à un message, créer des <strong>univers visuels</strong> et <strong>raconter une histoire</strong> en jouant sur la <strong>typographie</strong>, le <strong>son</strong>, la <strong>2D/3D</strong> et le <strong>montage</strong>. Je suis aussi <strong>Graphiste à la FDJ</strong>, où je conçois des visuels pensés pour être <strong>clairs</strong>, <strong>impactants</strong> et <strong>cohérents</strong> avec une <strong>identité de marque</strong>.</p>
                 </div>
                 <div class="me-details">
@@ -102,17 +103,15 @@
         </section>
         <section class="skills" id="skills">
             <div class="paint-splats paint-splats--skills" aria-hidden="true">
-              <img class="splat s1" src="imgTache/TacheBleu.png" alt="">
-              <img class="splat s2" src="imgTache/TacheVert2.png" alt="">
-              <img class="splat s3" src="imgTache/TacheOrange.png" alt="">
+              <img class="splat s1" src="imgTache/TacheBleu.png" alt="" loading="lazy" decoding="async">
+              <img class="splat s2" src="imgTache/TacheVert2.png" alt="" loading="lazy" decoding="async">
+              <img class="splat s3" src="imgTache/TacheOrange.png" alt="" loading="lazy" decoding="async">
             </div>
-            <div class="border-title skills-part"></div>
-            <div class="border-title skills-part rotate"></div>
             <div id="containerSkills">
                 <div class="skills-card">
-                  <div class="skills-card-background video">
+                  <div class="skills-card-background video" data-bg="img/videoIMG.jpg">
                     <div class="skills-video">
-                        <video muted autoplay="autoplay" loop="" src="img/Motion (1).mp4"></video>
+                        <video muted preload="none" loop src="img/Motion (1).mp4"></video>
                     </div>
                     <img src="img/toolbar.png" alt="" class="toolbar">
                     <img src="img/timeline.png" alt="" class="timeline">
@@ -126,9 +125,9 @@
                 </div>
 
                 <div class="skills-card">
-                  <div class="skills-card-background unreal">
+                  <div class="skills-card-background unreal" data-bg="img/3DIMG.jpg">
                     <div class="skills-video">
-                        <video muted autoplay="autoplay" loop="" src="img/DroneDesert.mp4"></video>
+                        <video muted preload="none" loop src="img/DroneDesert.mp4"></video>
                     </div>
                     <img src="img/ue5-tool.png" alt="" class="ue5-tool">
                     <img src="img/ue5-dock.png" alt="" class="ue5-dock">
@@ -142,7 +141,7 @@
                 </div>
 
                 <div class="skills-card">
-                  <div class="skills-card-background crea">
+                  <div class="skills-card-background crea" data-bg="img/CreaIMG.jpg">
                     <img src="img/menu-ps.jpg" alt="" class="menu-ps">
                     <img src="img/photoshopcolor.jpg" alt="" class="photoshopcolor">
                     <img src="img/photoshop-toolBar.jpg" alt="" class="photoshop-toolBar">
@@ -155,7 +154,7 @@
                 </div>
 
                 <div class="skills-card">
-                  <div class="skills-card-background dev">
+                  <div class="skills-card-background dev" data-bg="img/devIMG.png">
                     <img src="img/HTML5.svg" alt="" class="HTML5">
                     <img src="img/CSS3.svg" alt="" class="CSS3">
                     <img src="img/Javascript.svg" alt="" class="Javascript">
@@ -170,9 +169,9 @@
         </section>
         <section class="project" id="projects">
           <div class="paint-splats paint-splats--projects" aria-hidden="true">
-            <img class="splat s1" src="imgTache/TacheOrange3.png" alt="">
-            <img class="splat s2" src="imgTache/TacheRouge2.png" alt="">
-            <img class="splat s3" src="imgTache/TacheBleu2.png" alt="">
+            <img class="splat s1" src="imgTache/TacheOrange3.png" alt="" loading="lazy" decoding="async">
+            <img class="splat s2" src="imgTache/TacheRouge2.png" alt="" loading="lazy" decoding="async">
+            <img class="splat s3" src="imgTache/TacheBleu2.png" alt="" loading="lazy" decoding="async">
           </div>
           <div class="project-container">
             <div class="top-project-container">
@@ -265,7 +264,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Modélisation d'une épée en low-Poly</h3>
-                  <img src="img/EppeDiamantRose.png" alt="">
+                  <img src="img/EppeDiamantRose.png" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="blender">Blender</p>
                   </div>
@@ -276,7 +275,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Modélisation d'un phare</h3>
-                  <img src="img/Phare.png" alt="">
+                  <img src="img/Phare.png" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="blender">Blender</p>
                   </div>
@@ -336,7 +335,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>GIF Spotify</h3>
-                  <img src="img/Spotify.gif" alt="">
+                  <img src="img/Spotify.gif" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="unreal-engine">Photoshop</p>
                   </div>
@@ -369,7 +368,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Campagne institutionnelle ville de Berck-sur-Mer</h3>
-                  <img src="img/Affiche-Bus-INDESIGN.jpg" alt="">
+                  <img src="img/Affiche-Bus-INDESIGN.jpg" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="JS">Photoshop</p>
                     <p class="D-trois">Illustrator</p>
@@ -381,7 +380,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Trophée festival MMI</h3>
-                  <img src="img/JPO affiche Louis.jpg" alt="">
+                  <img src="img/JPO affiche Louis.jpg" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="photoshop">Photoshop</p>
                     <p class="illustrator">Illustrator</p>
@@ -393,7 +392,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Enjeux du web</h3>
-                  <img src="img/AfficheSAE1.06A3FINAL.jpg" alt="">
+                  <img src="img/AfficheSAE1.06A3FINAL.jpg" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="photoshop">Photoshop</p>
                   </div>
@@ -403,7 +402,7 @@
               <a href="https://youtu.be/UjFgD9T_nnQ">
                 <div class="project-card">
                   <h3>Projet Associatif</h3>
-                  <img src="img/Affiche-Ma-Belle-Assiette.jpg" alt="">
+                  <img src="img/Affiche-Ma-Belle-Assiette.jpg" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="Photoshop">Photoshop</p>
                     <p class="Illustrator">Illustrator</p>
@@ -416,7 +415,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Enjeux de l'IA</h3>
-                  <img src="img/Chatgpt.jpg" alt="">
+                  <img src="img/Chatgpt.jpg" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="Photoshop">Photoshop</p>
                   </div>
@@ -426,7 +425,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Dessin d'imagination 1</h3>
-                  <img src="img/Salma.jpg" alt="">
+                  <img src="img/Salma.jpg" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="PS">ProCreate</p>
                 
@@ -436,7 +435,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Poisson clown</h3>
-                  <img src="img/poisson.jpg" alt="">
+                  <img src="img/poisson.jpg" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="PS">ProCreate</p>
                 
@@ -446,7 +445,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Montagne</h3>
-                  <img src="img/montagne.jpg" alt="">
+                  <img src="img/montagne.jpg" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="PS">ProCreate</p>
                 
@@ -456,7 +455,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Dessin d'imagination 2</h3>
-                  <img src="img/Girl1.png" alt="">
+                  <img src="img/Girl1.png" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="PS">Photoshop</p>
                 
@@ -467,7 +466,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Dessin d'une cascade</h3>
-                  <img src="img/CascadeColor.png" alt="">
+                  <img src="img/CascadeColor.png" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="PS">Photoshop</p>
                   </div>
@@ -476,7 +475,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Dessin d'imagination 3</h3>
-                  <img src="img/Girl2.png" alt="">
+                  <img src="img/Girl2.png" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="PS">Photoshop</p>
                   </div>
@@ -485,7 +484,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Chainsaw Man</h3>
-                  <img src="img/Chainsaw.png" alt="">
+                  <img src="img/Chainsaw.png" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="PS">Photoshop</p>
                   </div>
@@ -494,7 +493,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Le désespoir </h3>
-                  <img src="img/Feu.jpg" alt="">
+                  <img src="img/Feu.jpg" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="PS">Papier</p>
                   </div>
@@ -503,7 +502,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Le courage</h3>
-                  <img src="img/Main.png" alt="">
+                  <img src="img/Main.png" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="PS">Papier</p>
                   </div>
@@ -512,7 +511,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>L'aventurier</h3>
-                  <img src="img/Hollowpapier.png" alt="">
+                  <img src="img/Hollowpapier.png" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="PS">Papier</p>
                   </div>
@@ -521,7 +520,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Hollow knight</h3>
-                  <img src="img/Hollow.png" alt="">
+                  <img src="img/Hollow.png" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="PS">Photoshop</p>
                   </div>
@@ -544,7 +543,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Marie Curie</h3>
-                  <img src="img/LogoPortfolio.svg" alt="">
+                  <img src="img/LogoPortfolio.svg" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="unreal-engine">illustrator</p>
                 
@@ -555,7 +554,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Crefs Volants V1</h3>
-                  <img src="img/breckboussol.svg" alt="" style="max-height: 350px;">
+                  <img src="img/breckboussol.svg" alt="" style="max-height: 350px;" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="blender">illustrator</p>
                   </div>
@@ -565,7 +564,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Crefs Volants V2</h3>
-                  <img src="img/berckLogoportfolio.svg" alt="" style="max-height: 350px;">
+                  <img src="img/berckLogoportfolio.svg" alt="" style="max-height: 350px;" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="blender">illustrator</p>
                   </div>
@@ -574,7 +573,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Ma belle assiette</h3>
-                  <img src="img/Belle assiette Logo.svg" alt="" style="max-height: 350px;">
+                  <img src="img/Belle assiette Logo.svg" alt="" style="max-height: 350px;" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="blender">illustrator</p>
                   </div>
@@ -597,7 +596,7 @@
               <a href="https://louisduhez.github.io/Gameviz-Award/">
                 <div class="project-card">
                   <h3>Gameviz-award</h3>
-                  <img src="img/devIMG.png" alt="">
+                  <img src="img/devIMG.png" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="JS">Javascript</p>
                     <p class="D-trois">D3.js</p>
@@ -611,7 +610,7 @@
               <a href="https://resaweb.duhez.butmmi.o2switch.site/">
                 <div class="project-card">
                   <h3>To-drive</h3>
-                  <img src="img/resawebIMG.png" alt="">
+                  <img src="img/resawebIMG.png" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="JS">Javascript</p>
                     <p class="php">PHP</p>
@@ -626,7 +625,7 @@
               <a href="https://github.com/LouisDuhez/Mini-Mario-Games">
                 <div class="project-card">
                   <h3>Mini Jeu Mario</h3>
-                  <img src="img/Java.png" alt="">
+                  <img src="img/Java.png" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="Java">Java</p>
                   </div>
@@ -636,7 +635,7 @@
               <a href="https://github.com/LouisDuhez/ENT">
                 <div class="project-card">
                   <h3>ENT étudiants</h3>
-                  <img src="img/ENT.png" alt="">
+                  <img src="img/ENT.png" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="php">PHP</p>
                     <p class="mysql">MySQL</p>
@@ -650,7 +649,7 @@
               <a href="">
                 <div class="project-card">
                   <h3>Concept de header site Apple</h3>
-                  <img src="img/Apple.png" alt="">
+                  <img src="img/Apple.png" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="HTML">HTML</p>
                     <p class="CSS">CSS</p>
@@ -660,7 +659,7 @@
               <a href="https://louisduhez.github.io/AutoPortrait-SAE1.05/">
                 <div class="project-card">
                   <h3>Portrait Chinois</h3>
-                  <img src="img/Portraitchinois.png" alt="">
+                  <img src="img/Portraitchinois.png" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="JS">Javascript</p>
                     <p class="HTML">HTML</p>
@@ -672,7 +671,7 @@
               <a href="https://louisduhez.github.io/Cars-Motosport/">
                 <div class="project-card">
                   <h3>Site de voiture</h3>
-                  <img src="img/F1.png" alt="">
+                  <img src="img/F1.png" alt="" loading="lazy" decoding="async">
                   <div class="project-competence">
                     <p class="HTML">HTML</p>
                     <p class="CSS">CSS</p>
