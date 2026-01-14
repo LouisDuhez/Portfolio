@@ -9,6 +9,9 @@ window.addEventListener('load', () => {
   // Desktop layout starts strictly above 900px in CSS.
   // Below that, the header is not positioned with large offsets, so we must NOT apply desktop GSAP x values.
   const isNarrow = window.matchMedia('(max-width: 900px)').matches; // This line is retained for context
+  const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const saveData = !!(conn && conn.saveData);
+  const slow = !!(conn && conn.effectiveType && conn.effectiveType.includes('2g'));
 
   if (prefersReducedMotion) {
     const loadContainer = document.querySelector('.load-container');
@@ -18,13 +21,13 @@ window.addEventListener('load', () => {
 
     // Mettre directement le header dans son état final (sans animation)
     if (window.gsap) {
-      // With the new header CSS, the final state is always x:0.
-      gsap.set('.header-bloc', { x: 0 });
-      gsap.set('.header-tache-yellow', { x: 0 });
-      gsap.set('.header-tache-blue', { x: 0 });
-      gsap.set('.header-tache-green', { x: 0 });
-      gsap.set('.header-tache-red', { x: 0 });
-      gsap.set('.header-tache-orange', { x: 0 });
+        // Place header elements directly at their final positions
+        gsap.set('.header-bloc', { x: -750 });
+        gsap.set('.header-tache-yellow', { x: -250 });
+        gsap.set('.header-tache-blue', { x: 250 });
+        gsap.set('.header-tache-green', { x: 250 });
+        gsap.set('.header-tache-red', { x: -250 });
+        gsap.set('.header-tache-orange', { x: 250 });
     }
 
     return;
@@ -33,8 +36,17 @@ window.addEventListener('load', () => {
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
   }
-
-  loader(); // Call loader without parameters
+  // Always skip intro loader and set final positions instantly
+  const loadContainer = document.querySelector('.load-container');
+  if (loadContainer) loadContainer.style.display = 'none';
+  if (window.gsap) {
+    gsap.set('.header-bloc', { x: -750 });
+    gsap.set('.header-tache-yellow', { x: -250 });
+    gsap.set('.header-tache-blue', { x: 250 });
+    gsap.set('.header-tache-green', { x: 250 });
+    gsap.set('.header-tache-red', { x: -250 });
+    gsap.set('.header-tache-orange', { x: 250 });
+  }
   initScrollTimelines();
   initSkillsAnimations();
   initSectionRevealAnimations();
@@ -43,7 +55,14 @@ window.addEventListener('load', () => {
   initContactAnimations();
   initFooterAnimations();
   initLazyBackgrounds();
+  initLazyImages();
   initVideoVisibilityAutoplay();
+  // Ensure ScrollTrigger recalculates after lazy media settle
+  if (window.ScrollTrigger) {
+    setTimeout(() => {
+      try { ScrollTrigger.refresh(); } catch {}
+    }, 300);
+  }
 });
 function initFooterAnimations() {
   if (!window.gsap || !window.ScrollTrigger) return;
@@ -240,6 +259,39 @@ function initLazyBackgrounds() {
   }, { rootMargin: '200px' });
 
   targets.forEach((el) => io.observe(el));
+}
+
+// Ensure lazy images work on mobile and refresh scroll triggers when they load
+function initLazyImages() {
+  const imgs = Array.from(document.querySelectorAll('img[loading="lazy"]'));
+  if (!imgs.length) return;
+
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  const ioSupported = 'IntersectionObserver' in window;
+
+  // Fallback: on older iOS Safari or when IO unsupported, force eager load
+  if ((isIOS && isSafari) || !ioSupported) {
+    imgs.forEach((img) => {
+      try { img.setAttribute('loading', 'eager'); } catch {}
+    });
+  }
+
+  // Refresh scroll triggers when images finish loading
+  imgs.forEach((img) => {
+    // If already loaded, refresh immediately
+    if (img.complete) {
+      if (window.ScrollTrigger) {
+        try { ScrollTrigger.refresh(); } catch {}
+      }
+      return;
+    }
+    img.addEventListener('load', () => {
+      if (window.ScrollTrigger) {
+        try { ScrollTrigger.refresh(); } catch {}
+      }
+    }, { once: true });
+  });
 }
 
 // Play/pause videos when visible; set lightweight preload
