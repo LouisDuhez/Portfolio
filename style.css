@@ -265,7 +265,6 @@ body {
 
 .header-bloc {
     position: relative;
-    left: 750px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -491,7 +490,7 @@ html.js.skills-anim #containerSkills .skills-card:nth-child(even) {
     margin-left: auto;
     margin-right: auto;
     width: 80%;
-    margin-bottom: 100px;
+    margin-bottom: 200px; /* Augmenté de 100px à 200px pour plus d'espace */
 }
 
 .skills-video {
@@ -530,21 +529,21 @@ html.js.skills-anim #containerSkills .skills-card:nth-child(even) {
 }
 
 .menu-ps {
-    width: 30px;
+    width: 500px;
     left: -35px;
     top: -20px;
     animation: float 6s ease-in-out infinite;
 }
 
 .photoshopcolor {
-    width: 200px;
+    width: 350px;
     right: -130px;
     top: 20%;
     animation: float 7s ease-in-out infinite;
 }
 
 .photoshop-toolBar {
-    width: 300px;
+    width: 100px;
     bottom: 10px;
     left: 20px;
     animation: float 8s ease-in-out infinite;
@@ -579,7 +578,7 @@ html.js.skills-anim #containerSkills .skills-card:nth-child(even) {
 }
 
 .effect {
-    width: 100px;
+    width: 300px;
     top: -30px;
     right: -30px;
     animation: float 5s ease-in-out infinite;
@@ -1159,7 +1158,6 @@ footer {
 
     .header-bloc {
         position: relative;
-        left: 750px;
         margin-top: -200px;
         width: 100%;
         display: flex;
@@ -1254,8 +1252,8 @@ footer {
         height: 300px;
     }
     .menu-ps {
-        max-width: 70px;
-        width: 10%;
+        max-width: 500px;
+        width: 100%;
         left: -35px;
         top: -20px;
         animation: float 6s ease-in-out infinite;
@@ -1263,81 +1261,81 @@ footer {
     
     .photoshopcolor {
         max-width: 400px;
-        width: 40%;
-        right: -130px;
-        top: 20%;
+        width: 80%;
+        right: -200px;
+        top: 250px;
         animation: float 7s ease-in-out infinite;
     }
     
     .photoshop-toolBar {
-
+        max-width: 100px;
         width: 80%;
-        bottom: 10px;
-        left: 20px;
+        bottom: -100px;
+        left: -40px;
         animation: float 8s ease-in-out infinite;
     }
     
     .HTML5 {
-        width: 20%;
-        top: -30px;
-        left: -30px;
+        width: 30%;
+        top: -50px;
+        left: -50px;
         animation: float 6.5s ease-in-out infinite;
     }
     
     .Javascript {
-        width: 20%;
+        width: 30%;
         top: 30%;
-        right: -20px;
+        right: -50px;
         animation: float 7.5s ease-in-out infinite;
     }
     
     .CSS3 {
-        width: 20%;
-        bottom: 0px;
-        left: -30px;
+        width: 30%;
+        bottom: -70px;
+        left: 00px;
         animation: float 5.5s ease-in-out infinite;
     }
     
     .timeline {
-        width: 80%;
-        bottom: -5px;
+        width: 100%;
+        bottom: -55px;
         left: -10%;
         animation: float 9s ease-in-out infinite;
     }
     
     .effect {
-        width: 30%;
+        width: 50%;
         top: -30px;
-        right: -30px;
+        right: -120px;
         animation: float 5s ease-in-out infinite;
     }
     
     .toolbar {
-        max-width: 70px;
-        width: 10%;
+        max-width: 100px;
+        width: 40%;
         top: -15px;
         left: -15px;
         animation: float 4.5s ease-in-out infinite;
     }
     
     .ue5-tool {
-        width: 60%;
+        width: 100%;
         top: 0;
         left: 0;
         animation: float 8.5s ease-in-out infinite;
     }
     
     .ue5-file {
-        width: 30%;
-        bottom: -20px;
-        right: -60px;
+        width: 50%;
+        bottom: 100px;
+        left: -120px;
         animation: float 7s ease-in-out infinite;
     }
     
     .ue5-dock {
-        width: 60%;
-        left: -30px;
-        bottom: -5px;
+        width: 100%;
+        left: 100px;
+        bottom: -100px;
         animation: float 6s ease-in-out infinite;
     }
 }

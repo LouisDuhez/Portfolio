@@ -36,17 +36,13 @@ window.addEventListener('load', () => {
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
   }
-  // Always skip intro loader and set final positions instantly
+  // Always skip intro loader UI if present
   const loadContainer = document.querySelector('.load-container');
   if (loadContainer) loadContainer.style.display = 'none';
-  if (window.gsap) {
-    gsap.set('.header-bloc', { x: -750 });
-    gsap.set('.header-tache-yellow', { x: -250 });
-    gsap.set('.header-tache-blue', { x: 250 });
-    gsap.set('.header-tache-green', { x: 250 });
-    gsap.set('.header-tache-red', { x: -250 });
-    gsap.set('.header-tache-orange', { x: 250 });
-  }
+
+  // Header entrance animation on page load
+  initHeaderLoadAnimation();
+
   initScrollTimelines();
   initSkillsAnimations();
   initSectionRevealAnimations();
@@ -949,76 +945,49 @@ function initProjectLightbox() {
   });
 }
 
+function initHeaderLoadAnimation() {
+  if (!window.gsap) return;
 
+  // Réinitialisation des positions pour être sûr de partir d'un état propre
+  gsap.set('.header-bloc', { x: 0 });
+  gsap.set('.header-tache-yellow', { x: 0 });
+  gsap.set('.header-tache-blue', { x: 0 });
+  gsap.set('.header-tache-green', { x: 0 });
+  gsap.set('.header-tache-red', { x: 0 });
+  gsap.set('.header-tache-orange', { x: 0 });
 
-// containerSkills = document.querySelector('.skills-container')
+  const isNarrow = window.matchMedia('(max-width: 900px)').matches;
 
-// const skillsData = [
-//   {
-//       "id": 1,
-//       "title": "Créativité",
-//       "image_class": "crea",
-//       "image_name": "menu-ps",  // Nom de la première image
-//       "image_name2": "photoshopcolor", // Nom de la deuxième image
-//       "image_name3": "photoshop-toolBar",  // Nom de la troisième image
-//       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae id optio quas, reprehenderit ipsum quos qui pariatur maiores sunt maxime.",
-//       "format" : "jpg"
-//   },
-//   {
-//       "id": 2,
-//       "title": "Développement Web",
-//       "image_class": "dev",
-//       "image_name": "HTML5",  // Nom de la première image
-//       "image_name2": "CSS3", // Nom de la deuxième image
-//       "image_name3": "Javascript",  // Nom de la troisième image
-//       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac urna nisi. Proin at neque et dui ultricies tincidunt.",
-//       "format" :"svg"
-//   },
-//   {
-//       "id": 3,
-//       "title": "3D",
-//       "image_class": "unreal",
-//       "image_name": "ue5-tool",  // Nom de la première image
-//       "image_name2": "ue5-dock", // Nom de la deuxième image
-//       "image_name3": "ue5-file",  // Nom de la troisième image
-//       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod justo vitae neque fringilla, ac pretium ligula condimentum.",
-//       "format" : "png"
-//   },
-//   {
-//       "id": 4,
-//       "title": "Montage vidéo",
-//       "image_class": "video",
-//       "image_name": "toolbar",  // Nom de la première image
-//       "image_name2": "timeline", // Nom de la deuxième image
-//       "image_name3": "effect",  // Nom de la troisième image
-//       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet quos eveniet cupiditate tempora. Suscipit rerum commodi distinctio molestias.",
-//       "format" : "png"
-//   }
-// ];
+  if (isNarrow) {
+    // Mobile: simple fade/slide for splats and character
+    gsap.set('.header-tache', { y: -120, opacity: 0 });
+    gsap.set('.header-perso', { opacity: 0, scale: 0.98, rotate: 0.5 });
+    gsap.set('.header-container h1', { opacity: 0, y: -20 });
 
-// const lengthData = skillsData.length; 
-// for (let i = 0; i < lengthData; i++) {
-//   const skill = skillsData[i];  // récupère l'élément actuel
+    const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+    tl.to('.header-tache', { y: 0, opacity: 1, duration: 0.8, stagger: 0.08 })
+      .to('.header-perso', { opacity: 1, scale: 1, duration: 0.7 }, '-=0.4')
+      .to('.header-container h1', { opacity: 1, y: 0, duration: 0.6 }, '-=0.45');
+  } else {
+    // Desktop: slide elements From offset To x:0 (final position)
+    
+    // On prépare les éléments (facultatif si on utilise .from, mais plus sûr)
+    gsap.set('.header-container h1', { opacity: 0, y: -24, rotate: -2 });
+    gsap.set('.header-perso', { opacity: 0, x: 80, scale: 0.98, transformOrigin: '50% 50%' });
 
-//   // Construction des chemins des images avec les noms dynamiques
-//   const imagePath1 = `img/${skill.image_name}.${skill.format}`;
-//   const imagePath2 = `img/${skill.image_name2}.${skill.format}`;
-//   const imagePath3 = `img/${skill.image_name3}.${skill.format}`;
+    const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+    
+    // On anime DEPUIS une position décalée VERS la position 0 (définie par le CSS)
+    tl.from('.header-bloc', { x: 750, opacity: 0, duration: 1.1 })
+      .from('.header-tache-yellow', { x: 250, opacity: 0, duration: 1.0 }, '-=0.9')
+      .from('.header-tache-blue', { x: -250, opacity: 0, duration: 1.0 }, '-=1.0')
+      .from('.header-tache-green', { scale: 0.5, opacity: 0, duration: 1.0 }, '-=1.0')
+      .from('.header-tache-red', { x: 250, opacity: 0, duration: 1.0 }, '-=1.0')
+      .from('.header-tache-orange', { x: -250, opacity: 0, duration: 1.0 }, '-=1.0')
+      .to('.header-container h1', { opacity: 1, y: 0, rotate: -2, duration: 0.7 }, '-=0.6')
+      .to('.header-perso', { opacity: 1, x: 0, scale: 1, duration: 0.8, ease: 'power3.out' }, '-=0.6');
 
-//   const cardHTML = `
-//       <div class="skills-card">
-//           <div class="skills-card-background ${skill.image_class}">
-//           <img src="${imagePath1}" alt="" class="${skill.image_name}">
-//               <img src="${imagePath2}" alt="" class="${skill.image_name2}">
-//               <img src="${imagePath3}" alt="" class="${skill.image_name3}">
-//           </div>
-//           <div class="skills-card-text">
-//               ${skill.text}
-//           </div>
-              
-//       </div>
-//   `;
-
-//   // Ajoute la carte générée au container
-//   containerSkills.innerHTML += cardHTML;
-// }
+    // Gentle wobble loop on the character
+    gsap.to('.header-perso', { rotate: 1.2, duration: 2.4, yoyo: true, repeat: -1, ease: 'sine.inOut' });
+  }
+}
