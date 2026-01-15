@@ -972,19 +972,18 @@ function initHeaderLoadAnimation() {
     // Desktop: slide elements From offset To x:0 (final position)
     
     // On prépare les éléments (facultatif si on utilise .from, mais plus sûr)
-    gsap.set('.header-container h1', { opacity: 0, y: -24, rotate: -2 });
+    gsap.set('.header-container h1', { opacity: 0, x: -100, rotate: -2 });
     gsap.set('.header-perso', { opacity: 0, x: 80, scale: 0.98, transformOrigin: '50% 50%' });
 
     const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
     
     // On anime DEPUIS une position décalée VERS la position 0 (définie par le CSS)
-    tl.from('.header-bloc', { x: 750, opacity: 0, duration: 1.1 })
-      .from('.header-tache-yellow', { x: 250, opacity: 0, duration: 1.0 }, '-=0.9')
-      .from('.header-tache-blue', { x: -250, opacity: 0, duration: 1.0 }, '-=1.0')
-      .from('.header-tache-green', { scale: 0.5, opacity: 0, duration: 1.0 }, '-=1.0')
-      .from('.header-tache-red', { x: 250, opacity: 0, duration: 1.0 }, '-=1.0')
-      .from('.header-tache-orange', { x: -250, opacity: 0, duration: 1.0 }, '-=1.0')
-      .to('.header-container h1', { opacity: 1, y: 0, rotate: -2, duration: 0.7 }, '-=0.6')
+    tl.from('.header-tache-yellow', { x: 250, opacity: 0, duration: 1.0 })
+      .from('.header-tache-blue', { x: -250, opacity: 0, duration: 1.0 }, '-=0.8')
+      .from('.header-tache-green', { scale: 0.5, opacity: 0, duration: 1.0 }, '-=0.8')
+      .from('.header-tache-red', { x: 250, opacity: 0, duration: 1.0 }, '-=0.8')
+      .from('.header-tache-orange', { x: -250, opacity: 0, duration: 1.0 }, '-=0.8')
+      .to('.header-container h1', { opacity: 1, x: 0, rotate: -2, duration: 0.7 }, '-=0.6')
       .to('.header-perso', { opacity: 1, x: 0, scale: 1, duration: 0.8, ease: 'power3.out' }, '-=0.6');
 
     // Gentle wobble loop on the character
