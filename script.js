@@ -990,3 +990,77 @@ function initHeaderLoadAnimation() {
     gsap.to('.header-perso', { rotate: 1.2, duration: 2.4, yoyo: true, repeat: -1, ease: 'sine.inOut' });
   }
 }
+
+function initAppendMotionProjects() {
+  const section = document.getElementById('projects');
+  if (!section) return;
+
+  // Trouver le bloc Motion ("Montage vidéo / Motion")
+  const motionContainer = Array.from(section.querySelectorAll('.project-container')).find((c) => {
+    const t = c.querySelector('.top-project-text h2')?.textContent?.toLowerCase() || '';
+    return t.includes('motion') || t.includes('montage');
+  });
+  if (!motionContainer) return;
+
+  const dev = motionContainer.querySelector('.dev-container');
+  if (!dev) return;
+
+  // Liste éditable: ajoute/retire ici tes fichiers Motion
+  const motionBase = 'img/Project-Motion/';
+  const files = [
+    'FLEUR 2.mp4',
+    'FLEUR.mp4',
+    'Montagne.mp4',
+    'Motion-Mars.mp4',
+    'Petite_Souris.mp4',
+    'SW.mp4',
+    'Tablette.mp4'
+  ];
+
+  // Index des vidéos déjà présentes pour éviter les doublons
+  const existingSrcs = new Set(
+    Array.from(dev.querySelectorAll('video'))
+      .map(v => (v.currentSrc || v.getAttribute('src') || '').split('/').pop())
+      .filter(Boolean)
+  );
+
+  files.forEach(file => {
+    if (existingSrcs.has(file)) return; // déjà présent
+    const src = motionBase + file;
+
+    const a = document.createElement('a');
+    a.href = '#'; // ouvre la lightbox
+    a.dataset.category = 'motion';
+
+    const card = document.createElement('div');
+    card.className = 'project-card';
+
+    const h3 = document.createElement('h3');
+    h3.textContent = file.replace(/\.[^.]+$/, '').replace(/[._-]+/g, ' ').trim();
+
+    const video = document.createElement('video');
+    video.muted = true;
+    video.loop = true;
+    video.setAttribute('preload', 'metadata');
+    video.playsInline = true;
+    video.src = src;
+
+    card.appendChild(h3);
+    card.appendChild(video);
+    a.appendChild(card);
+    dev.appendChild(a);
+  });
+
+  // Activer l’autoplay contrôlé visibilité pour les nouveaux <video>
+  try { initVideoVisibilityAutoplay(); } catch {}
+
+  // Rafraîchir GSAP si présent
+  if (window.ScrollTrigger) {
+    try { ScrollTrigger.refresh(); } catch {}
+  }
+}
+
+// Appel après le chargement initial
+window.addEventListener('load', () => {
+  try { initAppendMotionProjects(); } catch {}
+});
